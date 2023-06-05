@@ -1,0 +1,68 @@
+body {
+    text-align: center;
+}
+
+.container {
+    width: 50%;
+    margin-left: 25%;
+}
+
+table {
+    margin: auto;
+    border-collapse: collapse;
+}
+
+.border {
+    border: 1px solid red;
+}
+
+.search {
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+.search input {
+    width: 70%;
+    padding: 10px;
+    margin: 0 10px;
+}
+
+button {
+    border-radius: 2px;
+    background-color: red;
+    color: white;
+    padding: 10px 16px;
+    min-width: 90px;
+}
+
+.display_info {
+    margin: 20px 0;
+    padding: 20px;
+}
+
+td {
+    padding: 10px;
+    min-width: 50px;
+    height: auto;
+}
+
+thead {
+    background-color: red;
+    color: white;
+}
+
+th {
+    padding: 6px;
+    min-width: 60px;
+}
+
+.detail_info {
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+    margin: 10px 20%;
+}
+
+.edit_info {
+    padding: 20px 0;
+}

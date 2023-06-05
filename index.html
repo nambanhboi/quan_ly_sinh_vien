@@ -1,0 +1,102 @@
+<!-- "Bài tập 1: Tiếp tục bài tập Xây dựng một web form ""Danh sách sinh viên"" ở phần HTML, CSS, dùng external Javascript (đặt file .js bên ngoài html) 
+    \xử lý form theo các yêu cầu sau:
+- Khai báo class SinhVien (MaSV, TenSV, NgaySinh, GioiTinh, MaKhoa, class Khoa (MaKhoa, Ten Khoa). 
+- Xây dựng Function themSinhVien thực hiện lưu thông tin một sinh viên (Object SinhVien mới vào danh sách sinh viên (List Objects)
+- Xây dựng Function suaSinhVien thực hiện cập nhật lại thông tin sinh viên và Object SinhVien theo MaSV truyền vào.
+- Xây dựng Function xoaSinhVien thực hiện xóa Object SinhVien theo MaSV truyền vào ra khỏi List Objects Danh sách sinh viên
+- Xử lý thao thác khi click vào nút Thêm mới thì xóa trắng các ô nhập bên dưới, sau khi nhập xong nhấn nút Cập nhật thì lưu thông tin sinh viên vào 
+    List Object Danh sách sinh viên và hiển thị lại Bảng danh sách sinh viên ở trên. Trước khi lưu cần kiểm tra đã nhập đủ Mã SV, Tên SV và Khoa chưa 
+    và hiện cảnh báo nhắc thiếu thông tin nào chưa nhập
+- Khi người dùng click vào icon Sửa tại một hàng thì hiển thị thông tin tương ứng vào các ô nhập ở Vùng nhập thông tin cho phép người dùng sửa thông tin 
+    (trừ Mã SV không được sửa). Sửa xong thông tin ấn Cập nhật sẽ lưu thông tin vào List Objects Danh sách sinh viên và cập nhật nội dung hiển thị tại 
+    Bảng danh sách sinh viên ở trên
+- Khi người dùng click vào icon Xóa tại một hàng thì hiển thị Confirmation box hỏi Người dùng có chắc chắc muốn xóa sinh viên này không? 
+    Nếu ấn Yes thì tiến hành Xóa object sinh viên khỏi List Objects và cập nhật lại Bảng danh sách sinh viên.
+- Khi người dùng tick chọn nhiều hàng và ấn nút Xóa ở trên thì hiện Confirmation box, xác nhận thì cho phép xóa nhiều object sinh viên cùng lúc 
+    và cập nhật List Objects rồi hiển thị lại Bảng danh sách sinh viên. 
+- Ở vùng tìm kiếm khi người dùng nhập Từ khóa tìm kiếm và ấn Tìm Kiếm thì sẽ tìm kiếm các object sinh viên tại các thuộc tính của lớp SinhVien 
+    trong List Objects có trùng thông tin tạo List Objects mới và cập nhật lại Bảng hiển thị danh sách bên dưới. 
+    Nếu để trắng và ấn Tìm kiếm thì trở lại List Objects ban đầu lúc khởi tạo mặc định 10 objects." -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách sinh viên</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.4/font/bootstrap-icons.min.css"
+        crossorigin="anonymous" rel="stylesheet">
+        <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Quản lý Sinh viên</h1>
+        <div class="search border">
+            <span>Từ khóa: </span>
+            <input type="text" id="txtTimKiem" placeholder="Từ khóa cần tìm" name="txtTuKhoa">
+            <button id="timkiem">Tìm kiếm</button>
+        </div>
+    
+        <div class="display_info border">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" id="check_all">
+                        </th>
+                        <th>Mã SV</th>
+                        <th>Tên SV</th>
+                        <th>Ngày sinh</th>
+                        <th>Giới tính</th>
+                        <th>Khoa</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="table_sv"></tbody>
+            </table>   
+        </div>
+        <div class="edit_info border" >
+            <div class="buttons">
+                <button id="them">Thêm mới</button>
+                <button id="sua">Cập nhật</button>
+                <button id="lammoi">Làm mới</button>
+                <button id="xoa">Xóa</button>
+            </div>
+            <div class="enter_info">
+                <div class="detail_info">
+                    <label for="txtMaSV">Mã SV</label>
+                    <input type="text" name="txtMaSV">
+                </div>
+                <div class="detail_info">
+                    <label for="txtTenSV">Tên SV</label>
+                    <input type="text" name="txtTenSV">
+                </div>
+                <div class="detail_info">
+                    <label for="txtNgaySinh">Ngày sinh</label>
+                    <input type="date" name="txtNgaySinh">
+                </div>
+                <div class="detail_info">
+                    <label for="rdbGioiTinh">Giới tính</label>
+                    <div>
+                        <label for="">Nam</label>
+                        <input type="radio" value="Nam" name="rdbGioiTinh" checked>
+                        <label>Nữ</label>
+                        <input type="radio" value="Nữ" name="rdbGioiTinh">
+                    </div>
+                </div>
+                <div class="detail_info">
+                    <label>Khoa</label>
+                    <select name="drpKhoa" id="">
+                        <option value="CNTT">Công nghệ thông tin</option>
+                        <option value="DTVT">Điện tử viễn thông</option>
+                        <option value="KT" selected>Kinh tế</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="module" src="index.js"></script>
+</html>
