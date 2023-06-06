@@ -1,0 +1,49 @@
+<!-- "Bài tập 2: Tiếp tục bài tập Xây dựng game tic-tac-toe, thiết lập external javascript (file .js bên ngoài html) cho page như sau:
+- Sử dụng Array để lưu trạng thái 9 ô
+- Có hai lượt chơi X và O lần lượt, mỗi lượt chỉ một lần chọn vào một ô. Nếu đang là lượt của X thì khi click vào ô sẽ hiện chữ X tại ô đó, 
+    nếu lượt của O sẽ hiện chữ O tại ô đó.
+- Click lên ô đã chọn trước đó thì không xử lý gì và lượt chơi vẫn tiếp tục (hai nói cách khác là người chơi không được chọn ô đã được tick trước đó)
+- Mặc định label trạng thái hiển thị Lượt chơi tiếp theo: X; Tức là X được đi trước; Sau khi X chọn thì sẽ hiên thị 
+    Lượt chơi tiếp theo: O và đến lượt O đi, cứ tiếp tục như vậy cho đến khi kín các ô chọn thì kết thúc trò chơi.
+- Trò chơi kết thúc khi ở một trong hai tình huống: Hoặc khi cả hai bên đã chọn hết các ô mà chưa bên nào thắng; Hoặc khi một bên đã 
+    hoàn thành 3 ô thẳng hàng theo chiều đứng hoặc ngang hoặc chéo.
+- Sẽ được cung cấp thuật toán để tính người thắng cuộc và chỉ cần implement theo. Nếu có người thắng cuộc thì label status sẽ hiển thị 
+    Người thắng cuộc: X hoặc O. Nếu kết thúc mà không có người thắng cuộc thì sẽ hiển thị Không có người thắng cuộc." -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tic-toc-toe</h1>
+        <div class="chessboard">
+            <div class="rowboard">
+                <div id="0"></div>
+                <div id="1"></div>
+                <div id="2"></div>
+            </div>
+            <div class="rowboard">
+                <div id="3"></div>
+                <div id="4"></div>
+                <div id="5"></div>
+            </div>
+            <div class="rowboard">
+                <div id="6"></div>
+                <div id="7"></div>
+                <div id="8"></div>
+            </div>
+        </div>
+        <div class="luot_choi">
+            <label for="">Lượt chơi</label> 
+            <span id="luot">X</span>
+        </div>
+    </div>
+</body>
+<script src="index.js"></script>
+</html>

@@ -1,0 +1,31 @@
+.container {
+    width: 20%;
+    margin-left: 40%;
+     text-align: center;
+}
+
+.rowboard {
+    display: flex;
+}
+
+.rowboard div{
+    width: 36px;
+    height: 34px;
+    background-color: red;
+    border: 1px solid;
+    text-align: center;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+
+.chessboard {
+    margin-left: 31%;
+    margin-bottom: 20px;
+}
+
+.luot_choi{
+    font-size: 14px;
+}
+
+
